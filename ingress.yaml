@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minimal-ingress
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/target-type: ip
+    
+spec:
+  rules:
+  - host: userprofile.com
+  - http:
+      paths:
+      - backend:
+          service:
+            name: my-app
+            port:
+              number: 3000
