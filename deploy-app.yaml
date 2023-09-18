@@ -15,7 +15,22 @@ spec:
       - name: myapp
         image: davidalkobi/nodeapp:1.0.9
         ports:
-        - containerPort: 3000
+        - containerPort: 5000
+        env:
+        - name: USER_NAME
+          valueFrom: 
+            configMapKeyRef: 
+             name: mongodb-config
+             key: MONGO_INITDB_ROOT_USERNAME
+        - name: USER_PWD
+          valueFrom: 
+            secretKeyRef: 
+              name: mongodb-secret
+              key: MONGO_INITDB_ROOT_PASSWORD
+        - name: DB_URL
+          value: mongodb
+        - name: mongo_url
+          value: mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}
 ---
 apiVersion: v1
 kind: Service
@@ -25,9 +40,8 @@ spec:
   selector:
     app: myapp
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 3000
-  type: LoadBalancer
+  - port: 5000
+    targetPort: 5000
+
 
 
