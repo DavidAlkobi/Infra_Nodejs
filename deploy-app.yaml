@@ -13,9 +13,9 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: davidalkobi/nodeapp:1.0.9
+        image: davidalkobi/node:test
         ports:
-        - containerPort: 5000
+        - containerPort: 3000
         env:
         - name: USER_NAME
           valueFrom: 
@@ -31,6 +31,7 @@ spec:
           value: mongodb
         - name: mongo_url
           value: mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}
+
 ---
 apiVersion: v1
 kind: Service
@@ -40,8 +41,9 @@ spec:
   selector:
     app: myapp
   ports:
-  - port: 5000
-    targetPort: 5000
-
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+  
 
 
