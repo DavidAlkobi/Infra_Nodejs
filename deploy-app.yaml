@@ -29,7 +29,7 @@ spec:
               key: MONGO_INITDB_ROOT_PASSWORD
         - name: DB_URL
           value: mongodb
-        - name: mongo_url
+        - name: MONGO_URL
           value: mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}
 
 ---
