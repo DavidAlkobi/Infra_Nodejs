@@ -16,41 +16,8 @@ variable "AMI" {
     us-east-1 = "ami-0261755bbcb8c4a84"
   }
 }
-
-variable "PRIV_KEY_PATH" {
-  default = "vprofilekey"
-}
-
-variable "PUB_KEY_PATH" {
-  default = "vprofilekey.pub"
-}
-
-variable "USERNAME" {
-  default = "ubuntu"
-}
-
 variable "MYIP" {
   default = "192.168.232.138/24"
-}
-
-variable "rmquser" {
-  default = "rabbit"
-}
-
-variable "rmqpass" {
-  default = "Gr33n@pple123456"
-}
-
-variable "dbuser" {
-  default = "admin"
-}
-
-variable "dbpass" {
-  default = "admin123"
-}
-
-variable "dbname" {
-  default = "accounts"
 }
 
 variable "instance_count" {
