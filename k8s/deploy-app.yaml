@@ -30,7 +30,7 @@ spec:
         - name: DB_URL
           value: mongodb
         - name: MONGO_URL
-          value: mongodb://admin:password@mongodb:27017
+          value: mongodb://$(USER_NAME):$(USER_PWD)@$(DB_URL);27017
                  
 
 ---
