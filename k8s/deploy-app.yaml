@@ -30,7 +30,8 @@ spec:
         - name: DB_URL
           value: mongodb
         - name: MONGO_URL
-          value: mongodb://${process.env.USER_NAME}:${process.env.USER_PWD}@${process.env.DB_URL}
+          value: mongodb://admin:password@mongodb:27017
+                 
 
 ---
 apiVersion: v1
