@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: davidalkobi/nodeapp:1.0.13
+        image: davidalkobi/nodeapp2:latest
         ports:
         - containerPort: 3000
         env:
