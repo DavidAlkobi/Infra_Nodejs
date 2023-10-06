@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: nodejs
 spec:
+  replicas: 3
   selector:
     matchLabels:
       app: myapp
@@ -11,7 +12,6 @@ spec:
       labels:
         app: myapp
     spec:
-      replicas: 3
       containers:
       - name: myapp
         image: davidalkobi/nodeapp:1.0.13
