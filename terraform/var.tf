@@ -6,6 +6,11 @@ variable "cluster_name" {
   default = "eks-cluster"
 }
 
+variable "kube_config" {
+  type    = string
+  default = "~/.kube/config"
+}
+
 variable "node_group_name" {
   default = "worker-group-1"
 }
